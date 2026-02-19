@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "github-issue-reader": {
+      "command": "python3",
+      "args": ["/Users/vigneshsubbiah/unbound-mcp-security-test/vulnerable_mcp_server.py"]
+    }
+  }
+}
