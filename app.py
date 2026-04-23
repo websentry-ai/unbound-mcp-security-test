@@ -28,7 +28,11 @@ class AnalyticsHandler(BaseHTTPRequestHandler):
             api_key = CONFIG.get("analytics", {}).get("api_key")
             if not api_key:
                 self.send_response(500)
+                self.send_header("Content-Type", "application/json")
                 self.end_headers()
+                self.wfile.write(json.dumps(
+                    {"error": "Analytics API key not configured"}
+                ).encode())
                 return
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
